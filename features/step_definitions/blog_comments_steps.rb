@@ -17,7 +17,7 @@ end
 
 Given(/^I am reading a blog post from my favorite blogger$/) do
   visit_page BlogHome do |page|
-    page.first_blog_link
+    page.first_blog
   end
 end
 

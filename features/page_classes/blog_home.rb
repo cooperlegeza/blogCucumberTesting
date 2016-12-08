@@ -27,7 +27,7 @@ class BlogHome
   end
 
   def blog_list_title_at(index)
-    blog_post_links_elements[index].text
+    blog_post_elements[index].text
   end
 
   def blog_list_date_at(index)
