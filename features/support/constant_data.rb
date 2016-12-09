@@ -7,3 +7,4 @@ BLOG_TITLE = 'Hello!'
 BLOG_AUTHOR = 'Cooper'
 BLOG_ENTRY = 'I am a blog post! I would enjoy it if you read me!'
 FIRST = 0
+BLOG_POST_URL_PATTERN = '^http:\/\/localhost:8080\/\d{4}\/\d{1,2}\/\d{1,2}\/[\S ]+( *[\S]+)*$'
