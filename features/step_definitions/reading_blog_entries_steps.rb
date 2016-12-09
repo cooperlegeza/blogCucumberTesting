@@ -50,12 +50,9 @@ Then(/^then I should see a summary of my favorite blogger's (\d+) most recent po
       expect(page.blog_posts_recent_date_at(index)).to eq page.blog_list_date_at(index)
     end
 
-    datetime_count = 1
-    for datetime in 0..(page.most_recent_blogs_date_created_elements.size - 1)
-      for datetime_to_be_compared in datetime_count..(page.most_recent_blogs_date_created_elements.size - 1)
-        expect(page.blog_posts_recent_date_at(datetime_to_be_compared)).to be < page.blog_posts_recent_date_at(datetime)
-      end
-      datetime_count = datetime_count + 1
+
+    for datetime in 0..(page.most_recent_blogs_date_created_elements.size - 2)
+        expect(page.blog_posts_recent_date_at(datetime + 1)).to be < page.blog_posts_recent_date_at(datetime)
     end
   end
 end
@@ -66,7 +63,7 @@ When(/^I choose a blog post$/) do
     @blog_author = page.blog_list_author_at(FIRST)
     @blog_text = page.blog_list_text_at(FIRST)
     @blog_date = page.blog_list_date_at(FIRST)
-    page.first_blog_link
+    page.first_blog
   end
 end
 

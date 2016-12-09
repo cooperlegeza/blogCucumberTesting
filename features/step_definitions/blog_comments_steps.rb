@@ -1,7 +1,3 @@
-COMMENT_AUTHOR = 'Cooper'
-COMMENT_TEXT = 'This is a comment!'
-DATETIME_PATTERN = '%Y%m%d%T'
-
 Then(/^I should see comments left by other readers$/) do
   on_page BlogPost do |page|
     page.comment_author = COMMENT_AUTHOR

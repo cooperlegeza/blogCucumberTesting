@@ -2,13 +2,6 @@ require 'page-object'
 
 include PageObject::PageFactory
 
-BLOGGER_NAME = 'me'
-BLOGGER_PASSWORD = 'password'
-BLOG_TITLE = 'Hello!'
-BLOG_AUTHOR = 'Cooper'
-BLOG_ENTRY = 'I am a blog post! I would enjoy it if you read me!'
-FIRST = 0
-
 Given(/^I am logged in as a blogger$/) do
   visit_page BlogHome do |page|
   end
