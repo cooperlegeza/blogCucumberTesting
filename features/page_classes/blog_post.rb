@@ -13,6 +13,7 @@ class BlogPost
   span(:first_comment_author, :class => 'comment-author')
   div(:first_comment_text, :class=> 'comment-text')
   spans(:first_comment_date, :class => 'comment-date-created')
+  button(:submit_comment, :id => 'submitButton')
 
 
   def date_created

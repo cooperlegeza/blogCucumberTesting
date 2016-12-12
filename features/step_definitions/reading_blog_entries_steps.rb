@@ -1,8 +1,4 @@
-require 'page-object'
 require 'faker'
-
-include PageObject::PageFactory
-
 BLOG_SEARCH_VALUE = 'hello'
 
 Given(/^my favorite blogger has been very active$/) do

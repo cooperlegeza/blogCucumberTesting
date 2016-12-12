@@ -1,13 +1,19 @@
+require 'faker'
+
 Then(/^I should see comments left by other readers$/) do
   on_page BlogPost do |page|
-    page.comment_author = COMMENT_AUTHOR
-    page.comment_text = COMMENT_TEXT
-    @date_created = DateTime.now.strftime(DATETIME_PATTERN)
-    page.create_comment
+    author = Faker::Name.name
+    page.comment_author = author
 
-    expect(page.first_comment_author).to eq(COMMENT_AUTHOR)
-    expect(page.first_comment_text).to eq(COMMENT_TEXT)
-    expect(page.first_comment_date_created).to eq(@date_created)
+    comment_text = Faker::Lorem.paragraph
+    page.comment_text = comment_text
+    date_created = DateTime.now.strftime(DATETIME_PATTERN)
+
+    page.submit_comment
+    sleep 2
+    expect(page.first_comment_author).to eq(author)
+    expect(page.first_comment_text).to eq(comment_text)
+    expect(page.first_comment_date_created).to eq(date_created)
   end
 end
 
@@ -20,17 +26,20 @@ end
 
 When(/^I add my genius comment to the blog post$/) do
   on_page BlogPost do |page|
-    page.comment_author = COMMENT_AUTHOR
-    page.comment_text = COMMENT_TEXT
+    @author = Faker::Name.name
+    page.comment_author = @author
+
+    @comment_text = Faker::Lorem.paragraph
+    page.comment_text = @comment_text
     @date_created = DateTime.now.strftime(DATETIME_PATTERN)
-    page.create_comment
+    page.submit_comment
   end
 end
 
 Then(/^my genius comment is at the top of the blog post comments$/) do
   on_page BlogPost do |page|
-    expect(page.first_comment_author).to eq COMMENT_AUTHOR
-    expect(page.first_comment_text).to eq COMMENT_TEXT
+    expect(page.first_comment_author).to eq @author
+    expect(page.first_comment_text).to eq @comment_text
     expect(page.first_comment_date_created).to eq @date_created
   end
 end
