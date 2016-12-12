@@ -9,7 +9,7 @@ Then(/^I should see comments left by other readers$/) do
     page.comment_text = comment_text
     date_created = DateTime.now.strftime(DATETIME_PATTERN)
 
-    page.submit_comment
+    page.create_comment
     sleep 2
     expect(page.first_comment_author).to eq(author)
     expect(page.first_comment_text).to eq(comment_text)
@@ -32,7 +32,7 @@ When(/^I add my genius comment to the blog post$/) do
     @comment_text = Faker::Lorem.paragraph
     page.comment_text = @comment_text
     @date_created = DateTime.now.strftime(DATETIME_PATTERN)
-    page.submit_comment
+    page.create_comment
   end
 end
 
