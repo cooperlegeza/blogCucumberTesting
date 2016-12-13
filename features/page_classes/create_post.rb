@@ -5,7 +5,6 @@ class CreatePost
   include PageObject
 
   text_field(:title, :id => 'titleId')
-  text_field(:author, :id => 'authorId')
   text_area(:entry, :id => 'textId')
   element(:submit_form, :id => 'create')
 

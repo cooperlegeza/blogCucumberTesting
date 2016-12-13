@@ -1,7 +1,7 @@
 COMMENT_AUTHOR = 'Cooper'
 COMMENT_TEXT = 'This is a comment!'
 DATETIME_PATTERN = '%Y%m%d%T'
-BLOGGER_NAME = 'me'
+BLOGGER_NAME = 'Cooper'
 BLOGGER_PASSWORD = 'password'
 BLOG_TITLE = 'Hello!'
 BLOG_AUTHOR = 'Cooper'

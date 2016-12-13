@@ -24,9 +24,6 @@ When(/^I publish a new blog post$/) do
     @title = Faker::App.name
     page.title = @title
 
-    @author = Faker::Name.name
-    page.author = @author
-
     @entry = Faker::Lorem.paragraph
     page.entry = @entry
 
@@ -37,7 +34,7 @@ end
 Then(/^I am notified that the blog post was successfully added$/) do
   on_page BlogPost do |page|
     expect(page.title).to eq @title
-    expect(page.author).to eq @author
+    expect(page.author).to eq BLOGGER_NAME
     expect(page.text).to eq @entry
 
     @dateCreated = page.date_created

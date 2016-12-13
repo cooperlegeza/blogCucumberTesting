@@ -38,7 +38,6 @@ Then(/^then I should see a summary of my favorite blogger's (\d+) most recent po
     dates_created = page.recent_blog_dates
 
     expect(@blog_titles).to match_array(page.recent_blog_titles)
-    expect(@blog_authors).to match_array(page.recent_blog_authors)
     expect(@blog_entries).to match_array(page.recent_blog_entries)
 
     for datetime in 0..(dates_created.size - 2)
@@ -60,7 +59,7 @@ end
 Then(/^I should see the blog post$/) do
   on_page BlogPost do |page|
     expect(page.title).to eq @blog_title
-    expect(page.author).to eq @blog_author
+    expect(page.author).to eq BLOGGER_NAME
     expect(page.text).to eq @blog_text
     expect(page.date_created).to eq @blog_date
   end
@@ -91,10 +90,6 @@ def create_posts
       title = Faker::App.name
       @blog_titles << title
       page.title = title
-
-      author = Faker::Name.name
-      @blog_authors << author
-      page.author = author
 
       entry = Faker::Lorem.paragraph
       @blog_entries << entry
