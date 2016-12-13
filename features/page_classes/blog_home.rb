@@ -8,7 +8,7 @@ class BlogHome
   links(:blog_post, :class => 'blog-post-title')
   spans(:date_created, :class => 'date-created')
   link(:login, :class => 'login-button')
-  link(:create_post, :class => 'create')
+  link(:create_post, :class => 'createNewPost')
   link(:first_blog, :class => 'blog-post-title')
   spans(:blog_post_authors, :class => 'blog-front-page-author')
   spans(:blog_post_contents, :class => 'blog-front-page-post')
